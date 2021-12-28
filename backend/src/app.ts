@@ -2,11 +2,14 @@ import express, { Application } from "express";
 
 const app: Application = express();
 
+//imp config
+import config from "./config/config";
+
 // imp routes
 import routesIndex from "./routes/index";
 
 // settings
-app.set("port", 4000);
+app.set("port", config.PORT);
 
 // middlewares
 app.use(express.json());
