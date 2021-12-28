@@ -24,11 +24,27 @@ export const getHeroeRandom = async (req: Request, res: Response) => {
   res.json(hero);
 };
 
-export const getHeroe = async (req: Request, res: Response) => {
-  let hero = {};
+export const getHeroeById = async (req: Request, res: Response) => {
   let heroId = req.params.id;
+  let hero = {};
   await axios
     .get(api + heroId)
+    .then((resp) => {
+      hero = resp.data;
+    })
+    .catch((error) => {
+      hero = error;
+    });
+
+  res.json(hero);
+};
+
+export const getHeroeByName = async (req: Request, res: Response) => {
+  let heroName = req.params.name;
+  let hero = {};
+
+  await axios
+    .get(api + "search/" + heroName)
     .then((resp) => {
       hero = resp.data;
     })
