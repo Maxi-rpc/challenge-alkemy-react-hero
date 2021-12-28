@@ -2,8 +2,9 @@ import { Router } from "express";
 
 const route: Router = Router();
 
-import { getHeroe } from "../controllers/heroe.controller";
+import { getHeroeRandom, getHeroe } from "../controllers/heroe.controller";
 
-route.get("/", getHeroe);
+route.get("/", getHeroeRandom);
+route.get("/:id", getHeroe);
 
 export default route;

@@ -1,8 +1,40 @@
 import { Request, Response } from "express";
+import axios from "axios";
 
-//imp api
+// imp api
 import { api } from "../services/index";
 
-export const getHeroe = (req: Request, res: Response) => {
-  res.send(api);
+// num random entre el min y max de heroes y villanos existentes en la api
+function numRandom(min: number = 1, max: number = 731) {
+  return Math.floor(Math.random() * (max - min + 1) + min);
+}
+
+export const getHeroeRandom = async (req: Request, res: Response) => {
+  const num = await numRandom();
+  let hero = {};
+  await axios
+    .get(api + num)
+    .then((resp) => {
+      hero = resp.data;
+    })
+    .catch((error) => {
+      hero = error;
+    });
+
+  res.json(hero);
+};
+
+export const getHeroe = async (req: Request, res: Response) => {
+  let hero = {};
+  let heroId = req.params.id;
+  await axios
+    .get(api + heroId)
+    .then((resp) => {
+      hero = resp.data;
+    })
+    .catch((error) => {
+      hero = error;
+    });
+
+  res.json(hero);
 };

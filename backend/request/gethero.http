@@ -1,0 +1,5 @@
+### get hero random
+GET http://localhost:4000/api/
+
+### get hero por id
+GET http://localhost:4000/api/644
