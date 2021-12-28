@@ -12,6 +12,7 @@ function numRandom(min: number = 1, max: number = 731) {
 export const getHeroeRandom = async (req: Request, res: Response) => {
   const num = await numRandom();
   let hero = {};
+
   await axios
     .get(api + num)
     .then((resp) => {
@@ -27,6 +28,7 @@ export const getHeroeRandom = async (req: Request, res: Response) => {
 export const getHeroeById = async (req: Request, res: Response) => {
   let heroId = req.params.id;
   let hero = {};
+
   await axios
     .get(api + heroId)
     .then((resp) => {
