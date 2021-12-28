@@ -7,6 +7,9 @@ import testRoute from "./test.route";
 // route test
 router.use("/test", testRoute);
 
-//router.use("/api",ruta);
+//imp routes
+import heroRoute from "./heroe.route";
+
+router.use("/", heroRoute);
 
 export default router;
