@@ -1,0 +1,26 @@
+### Login Error
+POST http://localhost:4000/api/auth
+Content-Type: application/json
+
+{
+    "email": "",
+    "password": ""
+}
+
+### Login Error
+POST http://localhost:4000/api/auth
+Content-Type: application/json
+
+{
+    "email": "test@test.com",
+    "password": "test123"
+}
+
+### Login Ok
+POST http://localhost:4000/api/auth
+Content-Type: application/json
+
+{
+    "email": "challenge@alkemy.org",
+    "password": "react"
+}

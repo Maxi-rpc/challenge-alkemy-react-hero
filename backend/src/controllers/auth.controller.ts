@@ -3,18 +3,23 @@ import axios from "axios";
 import { authAlkemy } from "../services/index";
 
 export const login = async (req: Request, res: Response) => {
-	let token: string;
+	let data = {
+		message: "",
+		token: "",
+	};
+
 	await axios
 		.post(authAlkemy.url, {
-			email: authAlkemy.email,
-			password: authAlkemy.pass,
+			email: req.body.email,
+			password: req.body.password,
 		})
 		.then((resp) => {
-			token = resp.data;
+			data.message = "success";
+			data.token = resp.data.token;
 		})
 		.catch((error) => {
-			token = error;
+			data.message = "email y/o password invalido";
 		});
 
-	res.json(token);
+	res.json(data);
 };
