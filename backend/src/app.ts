@@ -1,4 +1,5 @@
 import express, { Application } from "express";
+import cors from "cors";
 
 const app: Application = express();
 
@@ -12,6 +13,7 @@ import routesIndex from "./routes/index";
 app.set("port", config.PORT);
 
 // middlewares
+app.use(cors());
 app.use(express.json());
 
 // routes
