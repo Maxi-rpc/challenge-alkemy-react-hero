@@ -1,3 +1,3 @@
 import { getHeroRandom } from "./Backend";
 
-export default getHeroRandom;
+export const GetHeroRandom = getHeroRandom;

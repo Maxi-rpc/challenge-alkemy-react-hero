@@ -1,7 +1,3 @@
-import Login from "./login/Login";
+import login from "./login/Login";
 
-const indexPage = {
-	login: Login,
-};
-
-export default indexPage;
+export const Login = login;
