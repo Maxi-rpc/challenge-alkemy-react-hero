@@ -1,3 +1,3 @@
-import login from "./login/Login";
+import loginPage from "./login/Login";
 
-export const Login = login;
+export const Login = loginPage;
