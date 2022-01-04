@@ -1,14 +1,28 @@
 import axios from "axios";
+import { BACKEND_HERO_SEARCH } from "../services/Apirest";
 import Backend from "../services/index";
 
 let data = {
   message: "",
-  hero: "",
+  hero: {},
 };
 
 export const getHeroRandom = async () => {
   await axios
     .get(Backend.backend_hero)
+    .then((resp) => {
+      data.hero = resp.data;
+    })
+    .catch((error) => {
+      data.message = error;
+    });
+
+  return data;
+};
+
+export const getHeroName = async ({ search }) => {
+  await axios
+    .get(BACKEND_HERO_SEARCH + search)
     .then((resp) => {
       data.hero = resp.data;
     })
