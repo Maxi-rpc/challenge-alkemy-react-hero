@@ -1,18 +1,29 @@
+import "./Card.css";
+
 export default function Card({ hero }) {
-	console.log(hero);
-	return (
-		<>
-			<div className="card bg-dark text-white">
-				<img src={hero.image.url} className="card-img" alt={hero.name} />
-				<div className="card-img-overlay">
-					<h5 className="card-title">Card title</h5>
-					<p className="card-text">
-						This is a wider card with supporting text below as a natural lead-in
-						to additional content. This content is a little bit longer.
-					</p>
-					<p className="card-text">Last updated 3 mins ago</p>
-				</div>
-			</div>
-		</>
-	);
+  console.log(hero);
+  return (
+    <>
+      <div className="col-sm-3">
+        <div className="card text-white bg-secondary">
+          <div className="card-header">{hero.name}</div>
+          <img src={hero.image.url} className="card-img-top" alt={hero.name} />
+          <div className="card-body">
+            <div className="row">
+              <div className="col">
+                <button type="submit" className="btn btn-sm btn-info">
+                  Detalle
+                </button>
+              </div>
+              <div className="col">
+                <button type="submit" className="btn btn-sm btn-success">
+                  Agregar a Equipo
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </>
+  );
 }
